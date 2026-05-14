@@ -153,20 +153,6 @@ h1, h2, h3, h4, h5, h6 {
     padding-bottom: 40px;
 }
 
-.badge {
-    display: inline-block;
-    padding: 6px 14px;
-    border: 1px solid var(--accent-gold);
-    color: var(--accent-gold);
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 24px;
-    border-radius: 20px;
-    background: rgba(212, 175, 55, 0.05);
-}
-
 .hero-title {
     font-size: clamp(2.5rem, 8vw, 5rem);
     background: linear-gradient(180deg, #fff 0%, #d4af37 100%);
@@ -189,9 +175,23 @@ h1, h2, h3, h4, h5, h6 {
 
 .hero-text {
     max-width: 800px;
-    margin: 0 auto 2.5rem;
+    margin: 0 auto 2rem;
     font-size: 1.1rem;
     color: var(--text-secondary);
+}
+
+.main-market-message-box {
+    margin: 0 auto 2.5rem;
+    padding: 15px 25px;
+    background: rgba(212, 175, 55, 0.1);
+    border-left: 4px solid var(--accent-gold);
+    display: inline-block;
+}
+
+.main-market-message-box p {
+    color: #fff;
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
 }
 
 .hero-actions {
@@ -202,287 +202,358 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* ==========================================================================
-   Teaser Section
+   Core Systems Section
    ========================================================================== */
-.teaser {
+.core-systems {
     padding: 6rem 0;
     background-color: var(--bg-main);
+}
+
+.wip-disclaimer {
     text-align: center;
-}
-
-.video-wrapper {
-    max-width: 900px;
-    margin: 0 auto 3rem;
-    border: 1px solid rgba(212, 175, 55, 0.2);
-    border-radius: 8px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-}
-
-.video-placeholder {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    background-color: #111;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-}
-
-.video-placeholder img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.6;
-    transition: opacity var(--transition-medium);
-}
-
-.video-placeholder:hover img {
-    opacity: 0.8;
-}
-
-.play-button {
-    position: absolute;
-    width: 80px;
-    height: 80px;
-    background: rgba(139, 0, 0, 0.8);
-    border: 2px solid var(--accent-gold);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 2rem;
-    color: white;
-    padding-left: 6px;
-    transition: all var(--transition-medium);
-    box-shadow: 0 0 20px var(--glow-red);
-}
-
-.video-placeholder:hover .play-button {
-    transform: scale(1.1);
-    background: var(--accent-red);
-}
-
-.teaser-content p {
-    font-size: 1.2rem;
-    max-width: 700px;
-    margin: 0 auto 2rem;
     color: var(--text-secondary);
     font-style: italic;
+    margin-top: -1.5rem;
+    margin-bottom: 3rem;
+    font-size: 0.95rem;
+}
+
+.system-cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+}
+
+.system-card {
+    background: var(--bg-card);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 6px;
+    padding: 20px 25px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.system-card:hover {
+    transform: translateY(-2px);
+    border-color: rgba(212, 175, 55, 0.3);
+}
+
+.system-name {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #fff;
+}
+
+.system-status {
+    font-size: 0.8rem;
+    padding: 4px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+}
+
+.status-implemented {
+    background: rgba(46, 204, 113, 0.15);
+    color: #2ecc71;
+    border: 1px solid rgba(46, 204, 113, 0.3);
+}
+
+.status-balancing, .status-tuning, .status-polishing {
+    background: rgba(241, 196, 15, 0.15);
+    color: #f1c40f;
+    border: 1px solid rgba(241, 196, 15, 0.3);
+}
+
+.status-pending {
+    background: rgba(231, 76, 60, 0.15);
+    color: #e74c3c;
+    border: 1px solid rgba(231, 76, 60, 0.3);
 }
 
 /* ==========================================================================
-   Why Redemption Section (Cards)
+   Why Redemption is Different (Comparison Table)
    ========================================================================== */
-.why-redemption {
+.why-different {
     padding: 6rem 0;
     background-color: var(--bg-secondary);
     border-top: 1px solid rgba(255,255,255,0.05);
     border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
-.cards-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 30px;
+.comparison-table-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    overflow-x: auto;
 }
 
-.card {
+.comparison-table {
+    width: 100%;
+    border-collapse: collapse;
     background: var(--bg-card);
-    border: 1px solid rgba(212, 175, 55, 0.1);
     border-radius: 8px;
-    padding: 40px 30px;
-    text-align: center;
-    transition: all var(--transition-medium);
-    position: relative;
     overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
-.card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: linear-gradient(90deg, transparent, var(--accent-gold), transparent);
-    opacity: 0;
-    transition: opacity var(--transition-medium);
+.comparison-table th, .comparison-table td {
+    padding: 20px 25px;
+    text-align: left;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 30px rgba(0,0,0,0.5), 0 0 15px var(--glow-gold);
-    border-color: rgba(212, 175, 55, 0.3);
+.comparison-table th {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    color: #fff;
+    background: rgba(0,0,0,0.3);
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-.card:hover::before {
-    opacity: 1;
+.comparison-table td {
+    font-size: 1.05rem;
+    color: var(--text-secondary);
 }
 
-.card-icon {
-    font-size: 3rem;
-    margin-bottom: 20px;
-    filter: drop-shadow(0 0 10px var(--glow-gold));
+.comparison-table tr:last-child td {
+    border-bottom: none;
 }
 
-.card h3 {
-    font-size: 1.4rem;
+.comparison-table .redemption-col {
+    background: rgba(212, 175, 55, 0.05);
+    color: #fff;
+    font-weight: 500;
+}
+
+.comparison-table th.redemption-col {
+    color: var(--accent-gold);
+    border-bottom: 2px solid var(--accent-gold);
+}
+
+/* ==========================================================================
+   Eternal + Seasonal Visual
+   ========================================================================== */
+.worlds-visual-section {
+    padding: 6rem 0;
+    background-color: var(--bg-main);
+    text-align: center;
+}
+
+.worlds-desc {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+    margin-top: -1.5rem;
+    margin-bottom: 4rem;
+}
+
+.tree-diagram {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+}
+
+.tree-node {
+    background: var(--bg-card);
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 8px;
+    padding: 30px;
+    min-width: 280px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+}
+
+.tree-node h3 {
+    color: var(--accent-gold);
+    font-size: 1.5rem;
     margin-bottom: 15px;
+}
+
+.tree-root ul {
+    list-style: none;
+    text-align: left;
+    display: inline-block;
+}
+
+.tree-root li {
+    margin-bottom: 8px;
     color: #fff;
 }
 
-.card p {
+.tree-root li::before {
+    content: '✓';
+    color: var(--accent-gold);
+    margin-right: 10px;
+}
+
+.tree-branches {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+}
+
+.tree-branches::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 40px;
+    background: rgba(212, 175, 55, 0.3);
+}
+
+.tree-branch {
+    position: relative;
+    flex: 1;
+    max-width: 350px;
+}
+
+.tree-branch::before {
+    content: '';
+    position: absolute;
+    top: -40px;
+    left: 50%;
+    width: 2px;
+    height: 40px;
+    background: rgba(212, 175, 55, 0.3);
+}
+
+/* Connecting line for branches on desktop */
+@media (min-width: 769px) {
+    .tree-branch:first-child::after {
+        content: '';
+        position: absolute;
+        top: -40px;
+        left: 50%;
+        width: 100%;
+        height: 2px;
+        background: rgba(212, 175, 55, 0.3);
+    }
+}
+
+.eternal-branch {
+    border-color: var(--accent-gold);
+}
+
+.seasonal-branch {
+    border-color: var(--accent-red);
+}
+
+.eternal-branch h3 { color: var(--accent-gold); }
+.seasonal-branch h3 { color: var(--accent-red); }
+
+.tree-branch p {
     color: var(--text-secondary);
     font-size: 0.95rem;
 }
 
 /* ==========================================================================
-   Features Section
+   Current Reveal
    ========================================================================== */
-.features {
-    padding: 6rem 0;
-    background-color: var(--bg-main);
-}
-
-.features-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 20px;
-}
-
-.feature-item {
-    background: rgba(255,255,255,0.03);
-    padding: 15px 20px;
-    border-radius: 4px;
-    border-left: 2px solid var(--accent-red);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    font-size: 1.05rem;
-    transition: background var(--transition-fast);
-}
-
-.feature-item:hover {
-    background: rgba(255,255,255,0.06);
-}
-
-.feature-item span {
-    color: var(--accent-gold);
-    font-size: 0.8rem;
-}
-
-/* ==========================================================================
-   Worlds Section
-   ========================================================================== */
-.worlds {
+.current-reveal {
     padding: 6rem 0;
     background-color: var(--bg-secondary);
     border-top: 1px solid rgba(255,255,255,0.05);
 }
 
-.worlds-content {
+.reveal-copy {
+    text-align: center;
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    max-width: 800px;
+    margin: -1.5rem auto 3rem;
+}
+
+.reveal-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 3rem;
+}
+
+.reveal-image {
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid rgba(255,255,255,0.1);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    background: #111;
+    aspect-ratio: 16 / 9;
+}
+
+.reveal-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.reveal-actions {
     display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    gap: 50px;
-}
-
-.worlds-text {
-    flex: 1;
-    min-width: 300px;
-}
-
-.worlds-text ul {
-    list-style: none;
-}
-
-.worlds-text li {
-    margin-bottom: 20px;
-    padding-left: 30px;
-    position: relative;
-    color: var(--text-secondary);
-}
-
-.worlds-text li::before {
-    content: '❖';
-    position: absolute;
-    left: 0;
-    color: var(--accent-gold);
-    font-size: 1rem;
-}
-
-.worlds-text strong {
-    color: #fff;
-    font-family: var(--font-heading);
-    letter-spacing: 1px;
-}
-
-.worlds-visual {
-    flex: 1;
-    min-width: 300px;
-    display: flex;
-    justify-content: center;
-}
-
-.visual-placeholder {
-    display: flex;
-    align-items: center;
     justify-content: center;
     gap: 20px;
-    position: relative;
-}
-
-.circle {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: var(--font-heading);
-    font-size: 1.2rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    box-shadow: inset 0 0 20px rgba(0,0,0,0.8);
-    position: relative;
-    z-index: 2;
-}
-
-.eternal-circle {
-    background: radial-gradient(circle, #2a1a05, #111);
-    border: 2px solid var(--accent-gold);
-    box-shadow: 0 0 30px var(--glow-gold);
-}
-
-.seasonal-circle {
-    background: radial-gradient(circle, #2a0505, #111);
-    border: 2px solid var(--accent-red);
-    box-shadow: 0 0 30px var(--glow-red);
-}
-
-.visual-placeholder::after {
-    content: '⇄';
-    position: absolute;
-    font-size: 2rem;
-    color: var(--text-secondary);
-    z-index: 1;
+    flex-wrap: wrap;
 }
 
 /* ==========================================================================
-   Beta Section
+   Videos Section
    ========================================================================== */
-.beta {
+.videos-section {
+    padding: 6rem 0;
+    background-color: var(--bg-main);
+}
+
+.videos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 40px;
+}
+
+.video-item h3 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--accent-gold);
+    font-family: var(--font-heading);
+}
+
+.video-wrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    border: 1px solid rgba(212, 175, 55, 0.2);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+    background: #111;
+}
+
+.video-wrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+/* ==========================================================================
+   Final CTA
+   ========================================================================== */
+.final-cta {
     padding: 8rem 0;
     background: linear-gradient(rgba(5,5,5,0.8), rgba(5,5,5,0.9)), url('/assets/beta-bg-placeholder.jpg') center/cover;
     text-align: center;
     border-top: 1px solid rgba(212, 175, 55, 0.2);
 }
 
-.beta-content p {
-    font-size: 1.2rem;
-    max-width: 600px;
-    margin: 0 auto 3rem;
-    color: #ddd;
+.final-cta-actions {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-top: 3rem;
 }
 
 /* ==========================================================================
@@ -564,13 +635,44 @@ h1, h2, h3, h4, h5, h6 {
         font-size: 2rem;
     }
 
-    .worlds-content {
+    .main-market-message-box p {
+        font-size: 1rem;
+    }
+    
+    .system-card {
         flex-direction: column;
-        text-align: center;
+        align-items: flex-start;
+        gap: 10px;
     }
 
-    .worlds-text li {
-        text-align: left;
+    /* Make tree diagram stack on mobile */
+    .tree-branches {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .tree-branches::before {
+        display: none;
+    }
+    
+    .tree-branch {
+        width: 100%;
+    }
+    
+    .tree-branch::before {
+        display: none;
+    }
+
+    .videos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .final-cta-actions {
+        flex-direction: column;
+    }
+
+    .final-cta-actions .btn {
+        width: 100%;
     }
 
     .mobile-sticky-cta {
